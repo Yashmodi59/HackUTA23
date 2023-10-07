@@ -1,6 +1,7 @@
 import streamlit as st
 import cv2
 import numpy as np
+from SudokuRecoginition.recognition import recognize
 
 def main():
     st.title("Image Capture and Upload App")
@@ -23,6 +24,8 @@ def main():
                 if st.button("Capture"):
                     cv2.imwrite("captured_image.jpg", frame)
                     st.success("Image captured and saved as 'captured_image.jpg'")
+                result_image = recognize(frame)
+        cap.release()
 
 
     elif option == "Upload Image":
@@ -35,6 +38,7 @@ def main():
             if st.button("Save"):
                 cv2.imwrite("uploaded_image.jpg", image)
                 st.success("Image saved as 'uploaded_image.jpg'")
+        result_image = recognize(frame)
 
 if __name__ == "__main__":
     main()
