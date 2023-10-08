@@ -252,7 +252,7 @@ def recognize(image, model, old_sudoku):
     warp = cv2.adaptiveThreshold(warp, 255, 1, 1, 11, 2)
     warp = cv2.bitwise_not(warp)
     _, warp = cv2.threshold(warp, 150, 255, cv2.THRESH_BINARY)
-    cv2.imshow("!", warp)
+    # cv2.imshow("!", warp)
     # boxes = splitBoxes(cv2.resize(warp, (378, 378)))
     # print(len(boxes))
     # numbers = getPredection(boxes)
